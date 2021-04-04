@@ -44,14 +44,10 @@ public class PessoaResource {
 		return ResponseEntity.created(uri).body(pessoSalva);
 				
 	}
-	
+		
 	@GetMapping("/{codigo}")
-	public ResponseEntity<Pessoa>buscarPessoa(@PathVariable  Long codigo){
-		
-		return pessoaRepository.findById(codigo).
-				 map(pessoa -> ResponseEntity.ok(pessoa))
-				.orElse(ResponseEntity.notFound().build());
-		
+	public ResponseEntity<Pessoa>buscarPeloCodigo(@PathVariable Long codigo){
+		return pessoaRepository.findById(codigo).map(pessoa -> ResponseEntity.ok(pessoa)).orElse(ResponseEntity.notFound().build());
 	}
 	
 	
