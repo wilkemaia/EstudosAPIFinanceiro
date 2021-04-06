@@ -1,6 +1,7 @@
 package com.financeiro.resource;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -41,8 +42,9 @@ public class ProdutoResource {
 	
 	@GetMapping
 	public List<Produto>getProdutos(){
-		
-		return produtoRepository.findAll();
+		//empresas.filter(empresa => (empresa.anoDeCriacao > 2000));
+				
+	     return produtoRepository.findAll().stream().filter(produto -> (produto.getAtivo() !=false)).collect(Collectors.toList());
 	}
 	
 	@PostMapping
