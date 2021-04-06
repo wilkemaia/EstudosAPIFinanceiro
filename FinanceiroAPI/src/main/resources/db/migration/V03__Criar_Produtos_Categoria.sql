@@ -7,7 +7,7 @@ CREATE TABLE bdrestapi.tbl_produto(
 
 ALTER TABLE bdrestapi.tbl_produto  
 add constraint fk_produto_categoria
-foreign key(cod_categoria) references tbl_categoria (codigo)
+foreign key(cod_categoria) references tbl_categoria (cod_categoria)
 ON DELETE NO ACTION
 ON UPDATE CASCADE;
 
@@ -19,6 +19,6 @@ INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco) values("MACARRÃO EL
 INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco) values("BISCOITO MABEL 800GR",2,7.99);
 INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco) values("CREME DE LEITE ITALAC 50 GR",2,1.99);
 
-INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco)values("NOTE BOOK SANSUNG",15,1800);
-INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco)values("CAMERA FOTOGRAFICA 12 PIXEL",15,445);
-INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco)values("SMART BAND SANSUNG",15,299);
+INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco)values("NOTE BOOK SANSUNG",4,1800);
+INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco)values("CAMERA FOTOGRAFICA 12 PIXEL",4,445);
+INSERT INTO bdrestapi.tbl_produto(nome,cod_categoria,preco)values("SMART BAND SANSUNG",4,299);

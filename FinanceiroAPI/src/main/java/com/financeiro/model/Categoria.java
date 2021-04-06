@@ -20,11 +20,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Categoria {
 	
-	public Long getCodigo() {
-		return codigo;
+	public Long getCod_categoria() {
+		return cod_categoria;
 	}
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setCod_categoria(Long codigo) {
+		this.cod_categoria = codigo;
 	}
 	public String getNome() {
 		return nome;
@@ -34,7 +34,7 @@ public class Categoria {
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
+	private Long cod_categoria;
 	@NotNull
 	@Size(min=3,max=20)
 	private String nome;
@@ -46,12 +46,11 @@ public class Categoria {
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + ((cod_categoria == null) ? 0 : cod_categoria.hashCode());
 		return result;
 	}
 	@Override
@@ -63,12 +62,14 @@ public class Categoria {
 		if (getClass() != obj.getClass())
 			return false;
 		Categoria other = (Categoria) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
+		if (cod_categoria == null) {
+			if (other.cod_categoria != null)
 				return false;
-		} else if (!codigo.equals(other.codigo))
+		} else if (!cod_categoria.equals(other.cod_categoria))
 			return false;
 		return true;
 	}
+
+	
 
 }

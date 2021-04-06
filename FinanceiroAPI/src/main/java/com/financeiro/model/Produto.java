@@ -17,7 +17,8 @@ public class Produto {
 	private Long codigo;
 	private String nome;
 	private Double preco;
-	
+		
+
 	@ManyToOne
 	@JoinColumn(name="cod_categoria")
 	private Categoria categoria;
@@ -63,7 +64,7 @@ public class Produto {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
-		this.categoria = categoria;
+	    this.categoria = categoria;
 	}
 	
 
