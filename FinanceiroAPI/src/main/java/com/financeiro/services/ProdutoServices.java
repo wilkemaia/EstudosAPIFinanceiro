@@ -17,11 +17,22 @@ public class ProdutoServices {
 	
 	public Produto atualizar(Long codigo, Produto produto) {
 		
-		Produto produtoSalvo = produtoRepository.findById(codigo).orElseThrow(()-> new EmptyResultDataAccessException(1)) ;
+		Produto produtoSalvo = buscarPeloCodigo(codigo);
 		BeanUtils.copyProperties(produto, produtoSalvo, "codigo");
 	    return produtoRepository.save(produtoSalvo);
-		 
 		
+	}
+	
+	public void atualizarProdAtivo(Long codigo, Boolean ativo) {
+		
+		Produto produtoSalvo =  buscarPeloCodigo(codigo);
+		produtoSalvo.setAtivo(ativo);
+		produtoRepository.save(produtoSalvo);
+	}
+
+	private Produto buscarPeloCodigo(Long codigo) {
+		Produto produtoSalvo = produtoRepository.findById(codigo).orElseThrow(()-> new EmptyResultDataAccessException(1)) ;
+		return produtoSalvo;
 	}
 
 }

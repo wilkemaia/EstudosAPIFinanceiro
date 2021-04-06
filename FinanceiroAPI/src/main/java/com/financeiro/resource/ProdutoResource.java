@@ -79,6 +79,11 @@ public class ProdutoResource {
 		return ResponseEntity.ok(produtoSalvo);
 	}
 	
+	@PutMapping("/{codigo}/ativo")
+	public void atualizarProdAtivo(@PathVariable Long codigo,@RequestBody Boolean ativo) {
+		produtoServices.atualizarProdAtivo(codigo, ativo);
+	}
+	
 }
 
 

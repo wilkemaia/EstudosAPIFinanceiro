@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="tbl_produto")
@@ -17,7 +18,17 @@ public class Produto {
 	private Long codigo;
 	private String nome;
 	private Double preco;
+	@NotNull
+	private Boolean ativo;
 		
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
 
 	@ManyToOne
 	@JoinColumn(name="cod_categoria")
@@ -59,11 +70,12 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	public Produto(Long codigo, String nome, Double preco, Categoria categoria) {
+	public Produto(Long codigo, String nome, Double preco, Boolean ativo, Categoria categoria) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
+		this.ativo=ativo;
 	    this.categoria = categoria;
 	}
 	
