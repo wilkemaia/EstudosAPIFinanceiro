@@ -42,8 +42,7 @@ public class ProdutoResource {
 	
 	@GetMapping
 	public List<Produto>getProdutos(){
-		//empresas.filter(empresa => (empresa.anoDeCriacao > 2000));
-				
+						
 	     return produtoRepository.findAll().stream().filter(produto -> (produto.getAtivo() !=false)).collect(Collectors.toList());
 	}
 	
