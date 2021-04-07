@@ -1,5 +1,6 @@
 package com.financeiro.exceptionHandle;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +48,16 @@ public class ExceptionHandle extends ResponseEntityExceptionHandler {
 		List<Erro> erros =  Arrays.asList(new Erro(menssagemUsuario,menssagemDesenvolvedor));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(),HttpStatus.NOT_FOUND, request);
 		
+	}
+	
+	@ExceptionHandler({SQLIntegrityConstraintViolationException.class})
+	public ResponseEntity<Object>handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException ex,WebRequest request){
+		
+		String menssagemUsuario = messageResource.getMessage("recurso.nao-permetida",null, LocaleContextHolder.getLocale());
+		String menssagemDesenvolvedor =  ex.toString();
+		
+		List<Erro> erros =  Arrays.asList(new Erro(menssagemUsuario,menssagemDesenvolvedor));
+		return handleExceptionInternal(ex, erros, new HttpHeaders(),HttpStatus.BAD_REQUEST, request);
 	}
 
 	@Override

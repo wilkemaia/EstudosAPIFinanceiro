@@ -64,12 +64,15 @@ public class ProdutoResource {
 	}
 	
 	
+	
 	@DeleteMapping("/{Codigo}")
+	
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover(@PathVariable Long codigo) {
 			
 		Produto produtoAdeletar =  produtoRepository.findById(codigo).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 		this.produtoRepository.delete(produtoAdeletar);
+		
 	}
 	
 	
