@@ -131,17 +131,18 @@ public class Lancamento {
 		this.pessoa = pessoa;
 	}
     
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private TipoLancamento tipo;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name="cod_categoria")
-	@NotNull
 	private Categoria categoria;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name="cod_pessoa")
-	@NotNull
 	private Pessoa pessoa;
 	
 

@@ -56,7 +56,11 @@
            <groupId>org.springframework.boot</groupId> 
            <artifactId>spring-boot-starter-validation</artifactId> 
         </dependency>
-		
+		<dependency>
+          <groupId>org.hibernate.orm</groupId>
+             <artifactId>hibernate-jpamodelgen</artifactId>
+             <version>6.0.0.Alpha7</version>
+        </dependency>
 		
 	</dependencies>
 
