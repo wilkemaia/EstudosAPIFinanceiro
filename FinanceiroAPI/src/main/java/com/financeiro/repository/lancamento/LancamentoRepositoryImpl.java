@@ -16,7 +16,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import com.financeiro.model.Lancamento;
-import com.financeiro.model.Lancamento_;
+
 import com.financeiro.repository.filter.LancamentoFilter;
 
 public class LancamentoRepositoryImpl  implements LancamentoRepositoryQuery{
@@ -74,16 +74,16 @@ public class LancamentoRepositoryImpl  implements LancamentoRepositoryQuery{
 		if(lancamentoFilter.getDescricao() !=null) {
 			
 			predicates.add(builder.like(
-			      builder.lower(root.get(Lancamento_.descricao)),"%" + lancamentoFilter.getDescricao().toLowerCase() + "%"));
+			      builder.lower(root.get("descricao")),"%" + lancamentoFilter.getDescricao().toLowerCase() + "%"));
 								
 		}
 		
 		if(lancamentoFilter.getDataVencimentoDe() !=null) {
-			predicates.add(builder.greaterThanOrEqualTo(root.get(Lancamento_.dataVencimento), lancamentoFilter.getDataVencimentoDe()));
+			predicates.add(builder.greaterThanOrEqualTo(root.get("dataVencimento"), lancamentoFilter.getDataVencimentoDe()));
 		}
 		
 		if(lancamentoFilter.getDataVencimentoAte() !=null) {
-			predicates.add(builder.lessThanOrEqualTo(root.get(Lancamento_.dataVencimento), lancamentoFilter.getDataVencimentoDe()));
+			predicates.add(builder.lessThanOrEqualTo(root.get("dataVencimento"), lancamentoFilter.getDataVencimentoDe()));
 		}
 		
 		return predicates.toArray(new Predicate[predicates.size()]);

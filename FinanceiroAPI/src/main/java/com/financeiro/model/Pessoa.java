@@ -1,5 +1,6 @@
 package com.financeiro.model;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,16 @@ public class Pessoa {
 	@NotNull
 	private Boolean ativo;
 	
+	@Column(name="salario")
+	private Double salario;
 	
+	public Double getSalario() {
+		return salario;
+	}
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
 	@Valid
     @Embedded
 	private Endereco endereco;
