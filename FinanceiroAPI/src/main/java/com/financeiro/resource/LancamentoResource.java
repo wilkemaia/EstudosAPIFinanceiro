@@ -47,7 +47,7 @@ public class LancamentoResource {
 	@Autowired
 	private LancamentoRepository lancamentoRepository;
 
-	@GetMapping
+	@GetMapping //http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2017-06-15&descricao=salario
 	public Page<Lancamento> pesquisar(LancamentoFilter lancamentoFilter,Pageable pageable) {
 		return lancamentoRepository.filtrar(lancamentoFilter,pageable);
 	}
